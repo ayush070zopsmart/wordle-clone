@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Wordle</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
-    <body>
+
+<head>
+    <title>Wordle</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <center>
         <header>
             <div id="center-content">
                 <!-- <button>?</button> -->
@@ -12,17 +15,20 @@
             </div>
         </header>
         <main>
+
+            <input id="guess" value="" />
             <div id="grid">
                 <!-- controlled by JS -->
             </div>
             <div id="root">
-                
+
             </div>
-            <input id="guess" value="" />
         </main>
-    </body>
-    <script src="js/lib/words.js"></script>
-    <script src="js/lib/domWork.js"></script>
-    <script src="js/index.js"></script>
-    </script>
+    </center>
+</body>
+<script src="js/lib/words.js"></script>
+<script src="js/lib/domWork.js"></script>
+<script src="js/index.js"></script>
+</script>
+
 </html>
