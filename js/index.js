@@ -12,60 +12,68 @@ function registerGuess(guess) {
 
     // count frequency of each letter
     var freq = {};
+    var isGreen = [];
     for (var i = 0; i < 5; i++) {
         if (!freq[WORD_LETTERS[i]]) {
             freq[WORD_LETTERS[i]] = 0;
         }
         freq[WORD_LETTERS[i]]++;
+        isGreen.push(false);
     }
-    // console.log(freq);
 
+    // console.log(freq);
+    guess.split("").forEach(function(letter, index) {
+        if (WORD_LETTERS[index] === letter) {
+            isGreen[index] = true;
+            freq[letter]--;
+            status.push(2);
+        } else {
+            status.push(0);
+        }
+    });
 
     guess.split("").forEach(function(letter, index) {
-
         // TODO: handle additional letters when there are duplicates
         let letterStatus;
         const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
-        const isInPlace = WORD_LETTERS[index] === letter;
-
-        if (freq[letter]) {
-            if (isInPlace) {
-                letterStatus = 2;
-                freq[letter]--;
-            } else if (existsInWord) {
+        if (!isGreen[index]) {
+            if (freq[letter] && existsInWord) {
                 letterStatus = 1;
                 freq[letter]--;
             } else {
                 letterStatus = 0;
             }
-        } else {
-            letterStatus = 0;
+            status[index] = letterStatus;
         }
-        status.push(letterStatus);
-    })
+    });
     printGuess(guess, status);
     return status;
 }
 
 el.addEventListener("change", function(e) {
     const userInput = e.target.value;
+    var isWon = false;
+    document.getElementById('guess').value = '';
     if (userInput.length === 5 && attempts > 0) {
         const result = registerGuess(userInput);
         const reducer = (previousValue, currentValue) => previousValue + currentValue;
         attempts--;
         if (result.reduce(reducer) === 10) {
             el.classList.add("hidden");
+            isWon = !isWon;
             const victoryMessage = document.createElement("div");
+            victoryMessage.classList.add("won");
             victoryMessage.innerText = "You won";
             document.body.appendChild(victoryMessage);
         }
-        if (attempts == 0) {
+        if (attempts == 0 && !isWon) {
             el.classList.add("hidden");
             const gameOver = document.createElement("div");
+            gameOver.classList.add("lose");
             gameOver.innerText = `GAME OVER !!\n THE CORRECT WORD WAS ${WORD} \n Better luck next time !!`;
             document.body.appendChild(gameOver);
         }
     } else {
-        alert("Enter 5 letter word")
+        alert("Enter 5 letter word");
     }
 });
