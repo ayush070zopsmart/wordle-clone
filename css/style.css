@@ -1,5 +1,6 @@
 body {
     box-sizing: border-box;
+    background-color: #131212;
     margin: 0;
     text-align: center;
 }
@@ -11,6 +12,7 @@ body * {
 header h1 {
     font-size: 32px;
     font-weight: 600;
+    color: white;
 }
 
 header {
@@ -27,15 +29,15 @@ header {
     padding: 10px;
     width: 20%;
     min-width: 150px;
-    border: 1px solid black;
+    border: none;
     margin: 1px;
     margin-bottom: 20px;
 }
 
 .userguess .letter {
     margin-bottom: 5px;
+    color: white;
     margin-top: 5px;
-    border: 2px solid gray;
     display: inline-block;
     padding: 4px 8px;
     width: 50px;
@@ -44,15 +46,15 @@ header {
 }
 
 .userguess .status0 {
-    background-color: #aaa;
+    background-color: #3a3b3d;
 }
 
 .userguess .status1 {
-    background-color: yellow;
+    background-color: #b69e44;
 }
 
 .userguess .status2 {
-    background-color: rgb(62, 235, 62);
+    background-color: #518d52;
 }
 
 .hidden {
@@ -61,11 +63,16 @@ header {
 
 .won {
     font-size: 20px;
-    color: green;
+    color: rgb(119, 255, 119);
 }
 
 .lose {
     font-size: 20px;
     color: red;
     margin: 2px;
+}
+
+span {
+    color: greenyellow;
+    font-size: 25px;
 }

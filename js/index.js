@@ -70,7 +70,8 @@ el.addEventListener("change", function(e) {
             el.classList.add("hidden");
             const gameOver = document.createElement("div");
             gameOver.classList.add("lose");
-            gameOver.innerText = `GAME OVER !!\n THE CORRECT WORD WAS ${WORD} \n Better luck next time !!`;
+            const answer = document.createElement("span");
+            gameOver.innerHTML = `<h3>GAME OVER !!<br> THE CORRECT WORD WAS <span>${WORD}</span> <br> Better luck next time !!</h3>`;
             document.body.appendChild(gameOver);
         }
     } else {
