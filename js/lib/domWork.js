@@ -21,3 +21,9 @@ function printGuess(guess, status) {
     });
     ROOT.appendChild(el);
 }
+
+function drawGhostInput(word) {
+    word = word.toUpperCase().padEnd(5);
+    const ghost = document.getElementById("ghost-input");
+    word.split("").forEach((l, i) => ghost.children[i].innerText = l);
+}

@@ -9,7 +9,6 @@ function registerGuess(guess) {
     guess = guess.toUpperCase();
     const status = [];
     const WORD_LETTERS = WORD.split("");
-
     // count frequency of each letter
     var freq = {};
     var isGreen = [];
@@ -50,31 +49,36 @@ function registerGuess(guess) {
     return status;
 }
 
+el.focus();
+
+el.addEventListener("blur", function(e) {
+    el.focus();
+})
+
+document.addEventListener("focus", function(e) {
+    el.focus();
+})
+
 el.addEventListener("change", function(e) {
     const userInput = e.target.value;
-    var isWon = false;
-    document.getElementById('guess').value = '';
-    if (userInput.length === 5 && attempts > 0) {
+    if (userInput.length === 5) {
         const result = registerGuess(userInput);
+        e.target.value = "";
+        const event = new Event('input');
+        e.target.dispatchEvent(event);
         const reducer = (previousValue, currentValue) => previousValue + currentValue;
-        attempts--;
         if (result.reduce(reducer) === 10) {
             el.classList.add("hidden");
-            isWon = !isWon;
             const victoryMessage = document.createElement("div");
-            victoryMessage.classList.add("won");
             victoryMessage.innerText = "You won";
             document.body.appendChild(victoryMessage);
         }
-        if (attempts == 0 && !isWon) {
-            el.classList.add("hidden");
-            const gameOver = document.createElement("div");
-            gameOver.classList.add("lose");
-            const answer = document.createElement("span");
-            gameOver.innerHTML = `<h3>GAME OVER !!<br> THE CORRECT WORD WAS <span>${WORD}</span> <br> Better luck next time !!</h3>`;
-            document.body.appendChild(gameOver);
-        }
     } else {
-        alert("Enter 5 letter word");
+        console.log("Skip this");
     }
+});
+
+el.addEventListener("input", function(e) {
+    const userInput = e.target.value;
+    drawGhostInput(userInput);
 });

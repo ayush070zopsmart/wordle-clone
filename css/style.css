@@ -1,18 +1,20 @@
 body {
     box-sizing: border-box;
-    background-color: #131212;
     margin: 0;
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
 }
 
 body * {
     box-sizing: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
 }
 
 header h1 {
     font-size: 32px;
     font-weight: 600;
-    color: white;
 }
 
 header {
@@ -25,54 +27,51 @@ header {
 }
 
 #guess {
-    font-size: 18px;
-    padding: 10px;
-    width: 20%;
-    min-width: 150px;
+    outline: none;
+    color: transparent;
+    background-color: transparent;
     border: none;
-    margin: 1px;
-    margin-bottom: 20px;
+}
+
+.userguess {
+    margin-bottom: 8px;
+    /* ugly hack to avoid spaces between inline-blocks */
+    font-size: 0;
 }
 
 .userguess .letter {
-    margin-bottom: 5px;
-    color: white;
-    margin-top: 5px;
     display: inline-block;
-    padding: 4px 8px;
-    width: 50px;
-    font-size: 30px;
-    margin-right: 4px;
+    height: 48px;
+    width: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 32px;
+    margin: 0 4px;
+    color: white;
+    vertical-align: middle;
 }
 
 .userguess .status0 {
-    background-color: #3a3b3d;
+    background-color: #787c7e;
 }
 
 .userguess .status1 {
-    background-color: #b69e44;
+    background-color: #c9b558;
 }
 
 .userguess .status2 {
-    background-color: #518d52;
+    background-color: #6aaa63;
 }
 
 .hidden {
     display: none;
 }
 
-.won {
-    font-size: 20px;
-    color: rgb(119, 255, 119);
+#ghost-input .letter:empty {
+    box-shadow: inset 0 0 0 2px #d3d6da;
 }
 
-.lose {
-    font-size: 20px;
-    color: red;
-    margin: 2px;
-}
-
-span {
-    color: greenyellow;
-    font-size: 25px;
+#ghost-input .letter {
+    box-shadow: inset 0 0 0 2px #878a8c;
+    color: #000;
 }
