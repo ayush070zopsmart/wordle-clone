@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Wordle</title>
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/fancy.css" />
-        <link rel="shortcut icon" type="image/jpg" href="assets/favicon.svg"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <div id="center-content">
-                <!-- <button>?</button> -->
-                <h1>WORDLE</h1>
-            </div>
-        </header>
-        <main>
-            <div id="grid">
-                <!-- controlled by JS -->
-            </div>
-            <div id="root">
-                
-            </div>
-            <div class="userguess" id="ghost-input">
-                <div class="letter"></div>
-                <div class="letter"></div>
-                <div class="letter"></div>
-                <div class="letter"></div>
-                <div class="letter"></div>
-            </div>
-            <input id="guess" value="" maxlength="5" />
-        </main>
-    </body>
-    <script src="js/lib/words.js"></script>
-    <script src="js/lib/domWork.js"></script>
-    <script src="js/index.js"></script>
-    </script>
+
+<head>
+    <title>Wordle</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/fancy.css" />
+    <link rel="shortcut icon" type="image/jpg" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body onload=displayKeyboard()>
+    <header>
+        <div id="center-content">
+            <!-- <button>?</button> -->
+            <h1>WORDLE</h1>
+        </div>
+    </header>
+    <main>
+        <div id="grid">
+            <!-- controlled by JS -->
+        </div>
+        <div id="root">
+
+        </div>
+        <div class="userguess" id="ghost-input">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <input id="guess" value="" maxlength="5" />
+    </main>
+    <footer>
+        <div id="key1">
+            <!-- controlled by js -->
+        </div>
+        <div id="key2">
+            <!-- controlled by js -->
+        </div>
+        <div id="key3">
+            <!-- controlled by js -->
+        </div>
+    </footer>
+</body>
+<script src="js/lib/words.js"></script>
+<script src="js/lib/domWork.js"></script>
+<script src="js/index.js"></script>
+</script>
+
 </html>

@@ -82,3 +82,44 @@ el.addEventListener("input", function(e) {
     const userInput = e.target.value;
     drawGhostInput(userInput);
 });
+
+function displayKeyboard() {
+    let line1 = 'QWERTYUIOP';
+    let line2 = 'ASDFGHJKL';
+    let line3_1 = 'ENTER';
+    let line3_2 = 'ZXCVBNM';
+    let line3_3 = 'CANCEL';
+
+
+    line1.split("").forEach(function(letter, index) {
+        const alpha = document.createElement("div");
+        alpha.classList.add("line");
+        alpha.innerText = letter;
+        document.getElementById("key1").appendChild(alpha);
+    });
+    line2.split("").forEach(function(letter, index) {
+        const alpha = document.createElement("div");
+        alpha.classList.add("line");
+        alpha.innerText = letter;
+        document.getElementById("key2").appendChild(alpha);
+    });
+
+    let alpha = document.createElement("div");
+    alpha.classList.add("enter");
+    alpha.innerText = line3_1;
+    document.getElementById("key3").appendChild(alpha);
+
+    line3_2.split("").forEach(function(letter, index) {
+        const alpha = document.createElement("div");
+        alpha.classList.add("line");
+        alpha.innerText = letter;
+        document.getElementById("key3").appendChild(alpha);
+    });
+
+    alpha = document.createElement("div");
+    alpha.classList.add("enter");
+    // alpha.innerHTML = "&larr;";
+    alpha.innerText = line3_3;
+    document.getElementById("key3").appendChild(alpha);
+
+}
