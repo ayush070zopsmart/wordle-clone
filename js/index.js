@@ -84,42 +84,26 @@ el.addEventListener("input", function(e) {
 });
 
 function displayKeyboard() {
-    let line1 = 'QWERTYUIOP';
-    let line2 = 'ASDFGHJKL';
-    let line3_1 = 'ENTER';
-    let line3_2 = 'ZXCVBNM';
-    let line3_3 = 'CANCEL';
 
+    const keys = ['QWERTYUIOP', 'ASDFGHJKL', 'ENTER', 'ZXCVBNM', 'CANCEL'];
+    let i = 1;
+    keys.map((e) => {
+        if (e === 'ENTER' || e === 'CANCEL') {
+            let alpha = document.createElement("div");
+            alpha.classList.add("special_char");
+            alpha.innerText = e;
+            document.getElementById("key3").appendChild(alpha);
+            i--;
 
-    line1.split("").forEach(function(letter, index) {
-        const alpha = document.createElement("div");
-        alpha.classList.add("line");
-        alpha.innerText = letter;
-        document.getElementById("key1").appendChild(alpha);
-    });
-    line2.split("").forEach(function(letter, index) {
-        const alpha = document.createElement("div");
-        alpha.classList.add("line");
-        alpha.innerText = letter;
-        document.getElementById("key2").appendChild(alpha);
-    });
-
-    let alpha = document.createElement("div");
-    alpha.classList.add("enter");
-    alpha.innerText = line3_1;
-    document.getElementById("key3").appendChild(alpha);
-
-    line3_2.split("").forEach(function(letter, index) {
-        const alpha = document.createElement("div");
-        alpha.classList.add("line");
-        alpha.innerText = letter;
-        document.getElementById("key3").appendChild(alpha);
-    });
-
-    alpha = document.createElement("div");
-    alpha.classList.add("enter");
-    // alpha.innerHTML = "&larr;";
-    alpha.innerText = line3_3;
-    document.getElementById("key3").appendChild(alpha);
+        } else {
+            e.split("").forEach(function(letter, index) {
+                let alpha = document.createElement("div");
+                alpha.classList.add("line");
+                alpha.innerText = letter;
+                document.getElementById(`key${i}`).appendChild(alpha);
+            });
+        }
+        i++;
+    })
 
 }
